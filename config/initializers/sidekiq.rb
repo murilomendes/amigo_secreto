@@ -1,8 +1,9 @@
 require 'sidekiq'
 
-Sidekiq.configure_server do |config|
-  config.redis = { size: Rails.env.staging? ? 12 : 15 }
-
+Sidekiq.configure_client do |config|
+  config.redis = { :size => 1 }
 end
 
-Sidekiq::Extensions.enable_delay!
+Sidekiq.configure_server do |config|
+  config.redis = { :size => 4 }
+end
