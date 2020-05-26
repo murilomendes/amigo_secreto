@@ -76,11 +76,11 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    address:              ENV["MAILGUN_SMTP_SERVER"],
-    port:                 ENV["MAILGUN_SMTP_PORT"],
-    domain:               ENV["MAILGUN_DOMAIN"],
-    user_name:            ENV["MAILGUN_SMTP_LOGIN"],
-    password:             ENV["MAILGUN_SMTP_PASSWORD"],
+    address:              ENV["SMTP_ADDRESS"],
+    port:                 ENV["SMTP_PORT"],
+    domain:               ENV["SMTP_DOMAIN"],
+    user_name:            ENV["SMTP_USER"],
+    password:             ENV["SMTP_PASSWORD"],
     authentication:       :plain,
     enable_starttls_auto: true
   }
